@@ -73,11 +73,12 @@ php artisan migrate
 Para rodar o Vite:
 ```sh
 # De dentro do container:
+npm install
 npm run dev
 
 # OU
 # De fora do container:
-docker compose exec npm run dev
+docker compose exec npm install && npm run dev
 ```
 
 Acesse o projeto
