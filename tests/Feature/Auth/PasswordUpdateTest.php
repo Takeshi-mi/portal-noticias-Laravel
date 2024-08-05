@@ -3,39 +3,49 @@
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
-use Livewire\Volt\Volt;
+use Tests\TestCase;
 
-test('password can be updated', function () {
-    $user = User::factory()->create();
+class PasswordUpdateTest extends TestCase
+{
+    use RefreshDatabase;
 
-    $this->actingAs($user);
+    public function test_password_can_be_updated(): void
+    {
+        $user = User::factory()->create();
 
-    $component = Volt::test('profile.update-password-form')
-        ->set('current_password', 'password')
-        ->set('password', 'new-password')
-        ->set('password_confirmation', 'new-password')
-        ->call('updatePassword');
+        $response = $this
+            ->actingAs($user)
+            ->from('/profile')
+            ->put('/password', [
+                'current_password' => 'password',
+                'password' => 'new-password',
+                'password_confirmation' => 'new-password',
+            ]);
 
-    $component
-        ->assertHasNoErrors()
-        ->assertNoRedirect();
+        $response
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('/profile');
 
-    $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
-});
+        $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
+    }
 
-test('correct password must be provided to update password', function () {
-    $user = User::factory()->create();
+    public function test_correct_password_must_be_provided_to_update_password(): void
+    {
+        $user = User::factory()->create();
 
-    $this->actingAs($user);
+        $response = $this
+            ->actingAs($user)
+            ->from('/profile')
+            ->put('/password', [
+                'current_password' => 'wrong-password',
+                'password' => 'new-password',
+                'password_confirmation' => 'new-password',
+            ]);
 
-    $component = Volt::test('profile.update-password-form')
-        ->set('current_password', 'wrong-password')
-        ->set('password', 'new-password')
-        ->set('password_confirmation', 'new-password')
-        ->call('updatePassword');
-
-    $component
-        ->assertHasErrors(['current_password'])
-        ->assertNoRedirect();
-});
+        $response
+            ->assertSessionHasErrorsIn('updatePassword', 'current_password')
+            ->assertRedirect('/profile');
+    }
+}
