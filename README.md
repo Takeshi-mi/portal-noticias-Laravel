@@ -11,6 +11,18 @@ Essa branch é a que eu estou trabalhando, caso você queira o projeto limpo cri
 - **setup-docker:** caso queira iniciar um outro projeto do zero, comece por aqui.
 
 
+# Pré-requisitos
+
+Para executar este projeto, você precisará ter os seguintes softwares instalados e configurados em seu ambiente:
+
+- **Docker**: Docker é uma plataforma de contêineres que permite criar, testar e implantar aplicativos rapidamente.  <img src="https://github.com/user-attachments/assets/e6d27697-bdd4-4534-9310-31e6f5e39ca7" alt="branches" height="40" width="40"/>
+  - [Instalação do Docker](https://docs.docker.com/get-docker/) 
+
+- **Git**: Git é um sistema de controle de versão distribuído, amplamente utilizado para desenvolvimento de software.
+  - [Instalação do Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+
+
 ### Passo a passo
 Clone Repositório
 ```sh
