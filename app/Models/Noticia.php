@@ -39,6 +39,8 @@ class Noticia extends Model
             $this->save();//salva o caminho no banco de dados
         }
     }
+
+    //Adicione os campos que você quer indexar  
     public function toSearchableArray()
     {
     return [

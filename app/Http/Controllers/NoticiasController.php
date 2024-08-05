@@ -29,7 +29,7 @@ class NoticiasController extends Controller
         $query = $request->input('query');
         $noticias = Noticia::search($query)->get();
 
-        return view('search-results', compact('noticias'));
+        return view('noticias.search-results', compact('noticias'));
 
     }
     /**
@@ -86,7 +86,7 @@ class NoticiasController extends Controller
         $request->validate([
             'titulo' => 'required|string|max:255',
             'descricao' => 'required|string|max:255',
-            'arquivo' => 'required|file|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'arquivo' => 'file|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $noticia->titulo = $request->titulo;
