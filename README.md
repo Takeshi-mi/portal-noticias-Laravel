@@ -80,7 +80,10 @@ npm run dev
 # De fora do container:
 docker compose exec npm install && npm run dev
 ```
-
+Para deixar o storage publico e aparecer as imagens:
+```sh
+php artisan storage
+```
 Acesse o projeto
 [http://localhost:8000](http://localhost:8000)
 
