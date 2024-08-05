@@ -1,7 +1,7 @@
 <h1>Noticias</h1>
 
 <footer>
-    <p>Formosa NEWS<br>
-    <a href="mailto:hege@example.com">formosagoias@hotmail.com</a></p>
+    <p>Poral de Notícias<br>
+    <a href="mailto:hege@example.com">noticias@gmail.com</a></p>
   </footer>
 

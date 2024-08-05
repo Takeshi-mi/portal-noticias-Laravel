@@ -24,7 +24,7 @@
 </div>
 <div class="row" id="header">
   <div class="col-12 bg-black text-white text-center"">
-    <h1>Formosa NEWS</h1>
+    <h1>Portal de Notícias</h1>
     <p>
   </div
 </div>
