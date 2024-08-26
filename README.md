@@ -26,7 +26,7 @@ Para executar este projeto, você precisará ter os seguintes softwares instalad
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone https://github.com/Takeshi-mi/portal-noticias-Laravel.git app-laravel
+git clone https://github.com/Sayorita/kitty-neko-chan/.git kitty-neko-chan
 ```
 ```sh
 cd app-laravel
