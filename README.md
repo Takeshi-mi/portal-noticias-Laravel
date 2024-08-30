@@ -10,6 +10,8 @@ Essa branch é a que eu estou trabalhando, caso você queira o projeto limpo cri
 - **laravel ui:** alternativa ao Breeze. Breeze usa tailwind pra estilizar. laravel ui permite usar bootstrap, react e vue nativamente.
 - **setup-docker:** caso queira iniciar um outro projeto do zero, comece por aqui.
 
+Estou utilizando o Laravel Scout com Algolia para implementar a função de Search no site com IA.
+Caso queira usar o código da branch Main, também é necessário também é necessário preencher sua chave de API do [algolia](https://www.algolia.com/pt-br/) no .env. É de graça, basta [criar uma conta](https://www.algolia.com/pt-br/) .
 
 # Pré-requisitos
 
@@ -26,7 +28,7 @@ Para executar este projeto, você precisará ter os seguintes softwares instalad
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone -b laravel-scout https://github.com/Takeshi-mi/portal-noticias-Laravel.git app-laravel
+git clone https://github.com/Takeshi-mi/portal-noticias-Laravel.git app-laravel
 ```
 ```sh
 cd app-laravel
@@ -35,28 +37,6 @@ cd app-laravel
 Suba os containers do projeto
 ```sh
 docker-compose up -d
-```
-
-
-Crie o Arquivo .env
-```sh
-cp .env.example .env
-```
-
-Acesse o container app
-```sh
-docker-compose exec app bash
-```
-
-
-Instale as dependências do projeto
-```sh
-composer install
-```
-
-Gere a key do projeto Laravel
-```sh
-php artisan key:generate
 ```
 
 OPCIONAL: Gere o banco SQLite (caso não use o banco MySQL)
@@ -74,11 +54,11 @@ Para rodar o Vite:
 ```sh
 # De dentro do container:
 npm install
-npm run dev
+npm run build
 
 # OU
 # De fora do container:
-docker compose exec npm install && npm run dev
+docker compose exec npm install && npm run build
 ```
 Para deixar o storage publico e aparecer as imagens:
 ```sh
