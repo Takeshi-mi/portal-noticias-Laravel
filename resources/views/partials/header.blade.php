@@ -1,5 +1,5 @@
   <div class="row">
-    <div class="col-12 bg-red-500 text-green text-end">
+    <div>
   @if (Route::has('login'))
       <nav class="-mx-3 flex flex-1 justify-end">
           @auth
@@ -23,8 +23,9 @@
   </div>
 </div>
 <div class="row" id="header">
-  <div class="col-12 bg-black text-white text-center"">
-    <h1>Portal de Notícias</h1>
+  <div class='col-12 text-center'>
+    <img src="" alt="">
+    <h1>TK News</h1>
     <p>
   </div
 </div>

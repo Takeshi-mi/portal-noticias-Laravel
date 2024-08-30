@@ -13,6 +13,7 @@ Route::resource('noticias', NoticiasController::class); //serve para criar, edit
 Route::get('/dashboard', [NoticiasController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard'); //serve para listar as noticias
 Route::get('/noticias/{noticia}', [NoticiasController::class, 'show'])->name('noticias.show'); //serve para mostrar uma noticia
 Route::put('/noticias/{noticia}', [NoticiasController::class, 'update'])->name('noticias.update'); //serve para atualizar uma noticia
+Route::get('/search', [NoticiasController::class, 'search'])->name('noticias.search-results'); //pesquisar notícia com algolia
 
 /*Route::get('/dashboard', function () {
     return view('dashboard');

@@ -6,11 +6,12 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Scout\Searchable;
 
 class Noticia extends Model
 {
     use HasFactory;
-
+    use Searchable;
     protected $fillable = [
         'titulo',
         'descricao',
@@ -37,6 +38,15 @@ class Noticia extends Model
             $this->url = Storage::url($path); //caminho completo para acessar o arquivo
             $this->save();//salva o caminho no banco de dados
         }
-
     }
+
+    //Adicione os campos que você quer indexar  
+    public function toSearchableArray()
+    {
+    return [
+        'id' => $this->id,
+        'titulo' => $this->titulo,
+        'descricao' => $this->descricao,
+    ];
+}
 }
