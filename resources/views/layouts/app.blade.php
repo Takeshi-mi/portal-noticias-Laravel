@@ -16,7 +16,7 @@
         <!-- Scripts -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-blue-5">
         <header>
             @include('partials.header')
         </header>   
